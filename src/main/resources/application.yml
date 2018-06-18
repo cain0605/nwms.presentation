@@ -1,0 +1,26 @@
+# ===================================================================
+# Spring boot config
+# ===================================================================
+spring:
+  mvc:
+    view:
+      prefix: /jsp/
+      suffix: .jsp
+  http: # HTTP encoding (HttpEncodingProperties)
+    encoding:
+      charset: UTF-8 # the encoding of HTTP requests/responses
+      enabled: true # enable http encoding support
+      force: true # force the configured encoding
+     
+# ===================================================================
+# Server config - nwms.presentation 프리젠테이션서버
+# ===================================================================
+server:
+  error:
+    whitelabel:
+      enabled: false   
+  servlet:
+    context-path: /
+    session:
+      timeout: 1800
+  port: 8000
