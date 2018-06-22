@@ -36,6 +36,9 @@ script:
   - docker push cain0605/nwms.presentation:${TRAVIS_JOB_NUMBER}
   - docker push cain0605/nwms.presentation
 
+  # 배포용 jar copy
+  - mv target/${PRJ_JAR} ./${PRJ_JAR}
+  
 after_success:
   - mvn clean test jacoco:report coveralls:report
   
