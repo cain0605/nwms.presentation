@@ -9,7 +9,70 @@ branches:
 before_install:
   - chmod +x mvnw
   
-script: "./mvnw test -B"
+script:
+  # BUILD
+  - ./mvnw package -B
+
+  # GET NAME
+  - PRJ_GROUP=$(mvn help:evaluate -Dexpression=project.groupId | egrep -v '^\[')
+  - PRJ_NAME=$(mvn help:evaluate -Dexpression=project.artifactId | egrep -v '^\[')
+  - PRJ_VERSION=$(mvn help:evaluate -Dexpression=project.version | egrep -v '^\[')
+
+  - echo "## PROJECT_GROUP - ${PRJ_GROUP}"
+  - echo "## PROJECT_NAME - ${PRJ_NAME}"
+  - echo "## PROJECT_VERSION - ${PRJ_VERSION}"
+
+  - PRJ_JAR=${PRJ_NAME}-${PRJ_VERSION}.jar
+
+  # DOCKER BUILD
+  - docker build -t nwms.presentation:latest --build-arg JAR_FILE=target/${PRJ_JAR} ./
+
+  # PUSH TO DOCKER HUB
+  - docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}
+  - docker tag nwms.presentation:latest cain0605/nwms.presentation:latest
+  - docker tag nwms.presentation:latest cain0605/nwms.presentation:${TRAVIS_JOB_NUMBER}
+
+  - docker push cain0605/nwms.presentation:latest
+  - docker push cain0605/nwms.presentation:${TRAVIS_JOB_NUMBER}
+  - docker push cain0605/nwms.presentation
 
 after_success:
   - mvn clean test jacoco:report coveralls:report
+  
+before_deploy:
+  - zip -r nwms.presentation.zip *
+  - mkdir -p deploy
+  - mv nwms.presentation.zip deploy/nwms.presentation.zip
+  
+deploy:
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: nwms-deploy
+    region: us-west-2
+    skip_cleanup: true
+    acl: public_read
+    local_dir: deploy
+    wait-until-deployed: true
+    on:
+      repo: cain0605/nwms.presentation
+      branch: master
+
+  - provider: codedeploy
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: nwms-deploy
+    key: nwms.presentation.zip # 빌드 파일을 압축해서 전달
+    bundle_type: zip
+    application: nwms.presentation # 웹 콘솔에서 등록한 CodeDeploy 어플리케이션
+    deployment_group: com.nwms # 웹 콘솔에서 등록한 CodeDeploy 배포 그룹
+    region: us-west-2
+    wait-until-deployed: true
+    on:
+      repo: cain0605/nwms.presentation
+      branch: master
+      
+notifications:
+  slack:
+    rooms:
+      - cain0605:uT682ndCB9pOlZOTRX6wI0oV#management  
