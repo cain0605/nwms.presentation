@@ -14,12 +14,4 @@ public class MainController {
 		
 		return mav; 
     }
-	
-	@RequestMapping("/rcpt/rcpt.view")
-    public ModelAndView rcptView(ModelAndView mav){
-		
-		mav.setViewName("rcptView");
-		
-		return mav; 
-    }
 }

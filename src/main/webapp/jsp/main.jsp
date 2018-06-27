@@ -1,35 +1,56 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<script type="text/javascript" src="/jquery/jquery-1.9.1.js"></script>
-<script type="text/javascript" src="/dhtmlx/dhtmlx.js"></script>
-<script type="text/javascript" src="/common/common.js"></script>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<link rel="stylesheet" type="text/css" href="/dhtmlx/dhtmlx_material.css"/>
-<link rel="stylesheet" type="text/css" href="/common/common.css"/>
-<title>입고관리시스템</title>
-<script>
-	$(document).ready(function() {
-	
-		var sidebar = new dhtmlXSideBar({
-			parent : document.body,
-			icons_path: "/common/imgs/icon/",
-			width: 160,
-			header: true,
-			autohide: true,
-			items: [
-				{id: "rcpt", text: "입고관리", icon: "document.gif", selected: true},
-				{id: "oder", text: "출고관리", icon: "document.gif"},
-				{id: "stok", text: "재고관리", icon: "document.gif"}
-			]
-		});
-		
-		sidebar.cells("rcpt").attachURL("/rcpt/rcpt.view");
-	});
-</script>
-</head>
-<body>
+<!DOCTYPE html>
+
+<html>
+
+<%--head.jsp--%>
+<%@ include file="include/head.jsp" %>
+
+<body class="hold-transition skin-blue sidebar-mini layout-boxed">
+<div class="wrapper">
+
+    <%--main_header.jsp--%>
+    <%-- Main Header --%>
+    <%@ include file="include/main_header.jsp" %>
+
+    <%--left_column.jsp--%>
+    <%-- Left side column. contains the logo and sidebar --%>
+    <%@ include file="include/left_column.jsp" %>
+    
+    <%-- Content Wrapper. Contains page content --%>
+    <div class="content-wrapper">
+        <%-- Content Header (Page header) --%>
+        <section class="content-header">
+            <h1>
+                메인페이지
+                <small>스프링연습예제</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> HOME</a></li>
+            </ol>
+        </section>
+
+        <%-- Main content --%>
+        <section class="content container-fluid">
+            <p>메인 페이지입니다.</p>
+            <%--------------------------
+              | Your Page Content Here |
+              --------------------------%>
+        </section>
+        <%-- /.content --%>
+    </div>
+    <%-- /.content-wrapper --%>
+
+    <%--main_footer.jsp--%>
+    <%-- Main Footer --%>
+    <%@ include file="include/main_footer.jsp" %>
+
+</div>
+<%-- ./wrapper --%>
+
+<%--plugin_js.jsp--%>
+<%@ include file="include/plugin_js.jsp" %>
+
 </body>
 </html>
