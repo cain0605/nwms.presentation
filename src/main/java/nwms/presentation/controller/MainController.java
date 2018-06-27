@@ -8,9 +8,17 @@ import org.springframework.web.servlet.ModelAndView;
 public class MainController {
 
 	@RequestMapping("/")
-    public ModelAndView index(ModelAndView mav){
+    public ModelAndView warehousing(ModelAndView mav){
 		
-		mav.setViewName("index");
+		mav.setViewName("main");
+		
+		return mav; 
+    }
+	
+	@RequestMapping("/rcpt/rcpt.view")
+    public ModelAndView rcptView(ModelAndView mav){
+		
+		mav.setViewName("rcptView");
 		
 		return mav; 
     }

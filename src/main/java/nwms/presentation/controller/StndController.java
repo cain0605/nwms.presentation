@@ -51,7 +51,7 @@ public class StndController {
 	 * 
 	 * @data : SD_AREA, SD_ZONE, SD_LOC
 	 */
-	@RequestMapping("/loc.view")
+	@RequestMapping("/stnd/loc.view")
     public ModelAndView locView(ModelAndView mav){
 		
 		mav.setViewName("locView");
@@ -68,23 +68,6 @@ public class StndController {
     public ModelAndView cdView(ModelAndView mav){
 		
 		mav.setViewName("cdView");
-		
-		return mav; 
-    }
-	
-
-	@RequestMapping("/standard/area")
-    public ModelAndView area(ModelAndView mav){
-		
-		mav.setViewName("standard/area");
-		
-		return mav; 
-    }
-	
-	@RequestMapping("/standard/table")
-    public ModelAndView table(ModelAndView mav){
-		
-		mav.setViewName("standard/table");
 		
 		return mav; 
     }
