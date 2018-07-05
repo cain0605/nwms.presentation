@@ -12,10 +12,10 @@ public class StndController {
 	 * 
 	 * @data : SD_BIZ, SD_BIZDUTY, SD_DC, SD_CLIENT
 	 */
-	@RequestMapping("/stnd/biz.view")
-    public ModelAndView bizView(ModelAndView mav){
+	@RequestMapping("/stnd/biz")
+    public ModelAndView biz(ModelAndView mav){
 		
-		mav.setViewName("bizView");
+		mav.setViewName("nwms/stnd/biz");
 		
 		return mav; 
     }
@@ -25,10 +25,10 @@ public class StndController {
 	 * 
 	 * @data : SD_CUST
 	 */
-	@RequestMapping("/stnd/cust.view")
-    public ModelAndView custView(ModelAndView mav){
+	@RequestMapping("/stnd/cust")
+    public ModelAndView cust(ModelAndView mav){
 		
-		mav.setViewName("custView");
+		mav.setViewName("nwms/stnd/cust");
 		
 		return mav; 
     }
@@ -38,23 +38,23 @@ public class StndController {
 	 * 
 	 * @data : SD_SKU
 	 */
-	@RequestMapping("/stnd/sku.view")
-    public ModelAndView skuView(ModelAndView mav){
+	@RequestMapping("/stnd/sku")
+    public ModelAndView sku(ModelAndView mav){
 		
-		mav.setViewName("skuView");
+		mav.setViewName("nwms/stnd/sku");
 		
 		return mav; 
     }
 
 	/**
-	 * 영역관리
+	 * 위치관리
 	 * 
 	 * @data : SD_AREA, SD_ZONE, SD_LOC
 	 */
-	@RequestMapping("/stnd/loc.view")
-    public ModelAndView locView(ModelAndView mav){
+	@RequestMapping("/stnd/loc")
+    public ModelAndView loc(ModelAndView mav){
 		
-		mav.setViewName("locView");
+		mav.setViewName("nwms/stnd/loc");
 		
 		return mav; 
     }
@@ -64,10 +64,10 @@ public class StndController {
 	 * 
 	 * @data : SD_CD
 	 */
-	@RequestMapping("/stnd/cd.view")
-    public ModelAndView cdView(ModelAndView mav){
+	@RequestMapping("/stnd/cd")
+    public ModelAndView cd(ModelAndView mav){
 		
-		mav.setViewName("cdView");
+		mav.setViewName("nwms/stnd/cd");
 		
 		return mav; 
     }

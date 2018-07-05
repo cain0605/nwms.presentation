@@ -2,9 +2,9 @@
 
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>Version</b> 2.4.0
+      <b>Version</b> 1.0.0
     </div>
-    <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
+    <strong>Copyright &copy; 2016-2018 <a href="https://cain0605.github.io">Next generation Warehouse Management System</a>.</strong> All Rights Reserved.
     reserved.
   </footer>
 
