@@ -25,6 +25,7 @@ desired effect
 -->
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
+
   <%@ include file="include/plugin.jsp" %>
   <%@ include file="include/main-header.jsp" %>
   <%@ include file="include/main-sidebar.jsp" %>
@@ -431,5 +432,13 @@ desired effect
   
   <%@ include file="include/main-footer.jsp" %>
 </div><!-- ./wrapper -->
+
+<!-- Morris.js charts -->
+<script src="/bower_components/raphael/raphael.min.js"></script>
+<script src="/bower_components/morris.js/morris.min.js"></script>
+
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="/dist/js/pages/dashboard.js"></script>
+
 </body>
 </html>
