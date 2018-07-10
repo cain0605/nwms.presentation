@@ -208,7 +208,7 @@ $(document).ready(function () {
 				
 	   			json.forEach(function (data, index) {
 					
-	   				var row = '<tr><td>' + data.pk.dc + '</td>' +
+	   				var row = '<tr><td>' + data.dc + '</td>' +
 				   			  '<td>' + data.dcnm + '</td>' +
 				   			  '<td>' + data.addr + '</td></tr>';
 
@@ -223,7 +223,7 @@ $(document).ready(function () {
 				
 	   			json.forEach(function (data, index) {
 					
-	   				var row = '<tr><td>' + data.pk.client + '</td>' +
+	   				var row = '<tr><td>' + data.client + '</td>' +
 				   			  '<td>' + data.clientnm + '</td>' +
 				   			  '<td>' + data.ceo + '</td>' +
 				   			  '<td>' + data.bizno + '</td></tr>';

@@ -54,7 +54,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i> 입고관리</a></li>
+            <li><a href="/rcpt/rcpt"><i class="fa fa-circle-o"></i> 입고관리</a></li>
           </ul>
         </li>
 
@@ -67,7 +67,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i> 출고관리</a></li>
+            <li><a href="/oder/oder"><i class="fa fa-circle-o"></i> 출고관리</a></li>
           </ul>
         </li>
 

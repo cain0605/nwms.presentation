@@ -104,8 +104,8 @@ $(document).ready(function () {
 				
 	   			json.forEach(function (data, index) {
 					
-	   				var row = '<tr><td>' + data.pk.cust + '</td>' +
-				   			  '<td>' + data.pk.custtp + '</td>' +
+	   				var row = '<tr><td>' + data.cust + '</td>' +
+				   			  '<td>' + data.custtp + '</td>' +
 				   			  '<td>' + data.custnm + '</td>' +
 				   			  '<td>' + data.addr + '</td>' +
 				   			  '<td>' + data.tel + '</td></tr>';

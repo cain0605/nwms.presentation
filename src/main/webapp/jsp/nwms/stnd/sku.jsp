@@ -103,9 +103,9 @@ $(document).ready(function () {
 				
 	   			json.forEach(function (data, index) {
 					
-	   				var row = '<tr><td>' + data.pk.biz + '</td>' +
-				   			  '<td>' + data.pk.client + '</td>' +
-				   			  '<td>' + data.pk.sku + '</td>' +
+	   				var row = '<tr><td>' + data.biz + '</td>' +
+				   			  '<td>' + data.client + '</td>' +
+				   			  '<td>' + data.sku + '</td>' +
 				   			  '<td>' + data.skunm + '</td></tr>';
 
 	       			$('#tbl_sku').append(row);

@@ -52,7 +52,7 @@ desired effect
           <!-- Grid ================================================================ -->
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">지역</h3>
+              <h3 class="box-title">입고전표</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -70,35 +70,13 @@ desired effect
             <!-- /.box-body -->
           </div>
           <!-- /.box -->
-          <!-- Grid ================================================================ -->
-          <div class="box">
-            <div class="box-header">
-              <h3 class="box-title">구역</h3>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <table id="tbl_zone" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                  <th>창고</th>
-                  <th>구역</th>
-                  <th>구역명</th>
-                  <th>지역</th>
-                </tr>
-                </thead>
-                <tbody></tbody>
-              </table>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
         </div>
         <!-- /.col -->
         <div class="col-md-6">
           <!-- Grid ================================================================ -->
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">위치</h3>
+              <h3 class="box-title">입고품목</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -109,6 +87,28 @@ desired effect
                   <th>위치</th>
                   <th>위치명</th>
                   <th>구역</th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+          <!-- Grid ================================================================ -->
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">입고박스</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="tbl_zone" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>창고</th>
+                  <th>구역</th>
+                  <th>구역명</th>
+                  <th>지역</th>
                 </tr>
                 </thead>
                 <tbody></tbody>
