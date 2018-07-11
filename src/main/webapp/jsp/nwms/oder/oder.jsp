@@ -36,12 +36,12 @@ desired effect
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        입고관리<small>RcptHd, RcptDt, RcptAsgn</small>
+        출고관리<small>OderHd, OderDt, OderAsgn</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> 메인</a></li>
-        <li><a href="#">입고정보</a></li>
-        <li class="active">입고관리</li>
+        <li><a href="#">출고정보</a></li>
+        <li class="active">출고관리</li>
       </ol>
     </section>
 
@@ -52,7 +52,7 @@ desired effect
           <!-- Grid ================================================================ -->
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">입고전표</h3>
+              <h3 class="box-title">출고전표</h3>
               
               <div class="box-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">
@@ -66,10 +66,10 @@ desired effect
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="tbl_rcpthd" class="table table-bordered table-striped">
+              <table id="tbl_oderhd" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>입고번호</th>
+                  <th>출고번호</th>
                   <th>예정일</th>
                   <th>매입처</th>
                 </tr>
@@ -86,11 +86,11 @@ desired effect
           <!-- Grid ================================================================ -->
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">입고품목</h3>
+              <h3 class="box-title">출고품목</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="tbl_rcptdt" class="table table-bordered table-striped">
+              <table id="tbl_oderdt" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th>품목</th>
@@ -108,11 +108,11 @@ desired effect
           <!-- Grid ================================================================ -->
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">입고박스</h3>
+              <h3 class="box-title">출고박스</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="tbl_rcptasgn" class="table table-bordered table-striped">
+              <table id="tbl_oderasgn" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th>LOT</th>
@@ -143,43 +143,43 @@ desired effect
 <script>
 $(document).ready(function () {
 	
-	//입고전표 Row Click
-	$(document).on("click", '#tbl_rcpthd> tbody> tr', function (){
-		var url = '/rcpt/rcptdt/rcptno/' + $(this).find('#rcptno').html() + 
+	//출고전표 Row Click
+	$(document).on("click", '#tbl_oderhd> tbody> tr', function (){
+		var url = '/oder/oderdt/oderno/' + $(this).find('#oderno').html() + 
 				  '/dc/' + $(this).find('#dc').val() + 
 				  '/biz/' + $(this).find('#biz').val();
 		
-		gfn_action_ajaxsubmit('selectRcptDt', 'get', url, null, fn_callback);
+		gfn_action_ajaxsubmit('selectOderDt', 'get', url, null, fn_callback);
 	});
 
-	//입고품목 Row Click
-	$(document).on("click", '#tbl_rcptdt> tbody> tr', function (){
-		var url = '/rcpt/rcptasgn/rcptno/' + $(this).find('#rcptno').val() + 
-		  		  '/rcptsn/' + $(this).find('#rcptsn').val() + 
+	//출고품목 Row Click
+	$(document).on("click", '#tbl_oderdt> tbody> tr', function (){
+		var url = '/oder/oderasgn/oderno/' + $(this).find('#oderno').val() + 
+		  		  '/odersn/' + $(this).find('#odersn').val() + 
 		  		  '/dc/' + $(this).find('#dc').val() + 
 		  		  '/biz/' + $(this).find('#biz').val();
 		
-		gfn_action_ajaxsubmit('selectRcptAsgn', 'get', url, null, fn_callback);
+		gfn_action_ajaxsubmit('selectOderAsgn', 'get', url, null, fn_callback);
 	});
 	
     var fn_callback = function (svc_id, json){
    		switch (svc_id) {
-   			//입고전표조회
-	   		case 'selectRcptHd':
-				$('#tbl_rcpthd> tbody').empty();
+   			//출고전표조회
+	   		case 'selectOderHd':
+				$('#tbl_oderhd> tbody').empty();
 				
 	   			json.forEach(function (data, index) {
 					
 	   				var row = '<tr><input type=\'hidden\' name=\'biz\' id=\'biz\' value=\''+ data.biz +'\'/>' +
 	   						  '<input type=\'hidden\' name=\'dc\' id=\'dc\' value=\''+ data.dc +'\'/>' +
-	   						  '<td id=\'rcptno\'>' + data.rcptno + '</td>' +
+	   						  '<td id=\'oderno\'>' + data.oderno + '</td>' +
 				   			  '<td id=\'plande\'>' + data.plande + '</td>' +
 				   			  '<td id=\'custnm\'>' + data.sdcust.custnm + '</td></tr>';
 
-	       			$('#tbl_rcpthd').append(row);
+	       			$('#tbl_oderhd').append(row);
             	});
 	   			
-	   		    $('#tbl_rcpthd').DataTable({
+	   		    $('#tbl_oderhd').DataTable({
 	   		        'paging'      : true,
 	   		        'lengthChange': false,
 	   		        'searching'   : false,
@@ -190,45 +190,45 @@ $(document).ready(function () {
 	   			
 	        break;
 	        
-   			//입고품목조회
-	   		case 'selectRcptDt':
-				$('#tbl_rcptdt> tbody').empty();
+   			//출고품목조회
+	   		case 'selectOderDt':
+				$('#tbl_oderdt> tbody').empty();
 				
 	   			json.forEach(function (data, index) {
 
 	   				var row = '<tr><input type=\'hidden\' name=\'biz\' id=\'biz\' value=\''+ data.biz +'\'/>' +
 						  	  '<input type=\'hidden\' name=\'dc\' id=\'dc\' value=\''+ data.dc +'\'/>' +
-						  	  '<input type=\'hidden\' name=\'rcptno\' id=\'rcptno\' value=\''+ data.rcptno +'\'/>' +
-						  	  '<input type=\'hidden\' name=\'rcptsn\' id=\'rcptsn\' value=\''+ data.rcptsn +'\'/>' +
+						  	  '<input type=\'hidden\' name=\'oderno\' id=\'oderno\' value=\''+ data.oderno +'\'/>' +
+						  	  '<input type=\'hidden\' name=\'odersn\' id=\'odersn\' value=\''+ data.odersn +'\'/>' +
    						  	  '<td id=\'dc\'>' + data.sku + '</td>' +
 				   			  '<td id=\'zone\'>' + data.sdsku.skunm + '</td>' +
-				   			  '<td>' + data.rcptqty + '</td>' +
+				   			  '<td>' + data.oderqty + '</td>' +
 				   			  '<td>' + data.wt + '</td></tr>';
 
-	       			$('#tbl_rcptdt').append(row);
+	       			$('#tbl_oderdt').append(row);
             	});
 
 	        break;
 	        
-   			//입고박스조회
-	   		case 'selectRcptAsgn':
-				$('#tbl_rcptasgn> tbody').empty();
+   			//출고박스조회
+	   		case 'selectOderAsgn':
+				$('#tbl_oderasgn> tbody').empty();
 				
 	   			json.forEach(function (data, index) {
 					
-	   				var row = '<tr><td>' + data.lot + '</td>' +
-		   			  		  '<td>' + data.pltid + '</td>' +
-		   			  		  '<td>' + data.rcptqty + '</td>' +
+	   				var row = '<tr><td>' + data.tolot + '</td>' +
+		   			  		  '<td>' + data.topltid + '</td>' +
+		   			  		  '<td>' + data.oderqty + '</td>' +
 				   			  '<td>' + data.wt + '</td></tr>';
 
-	       			$('#tbl_rcptasgn').append(row);
+	       			$('#tbl_oderasgn').append(row);
             	});
 
 	        break;
 		}
    	}
 
-	gfn_action_ajaxsubmit('selectRcptHd', 'get', '/rcpt/rcpthd', null, fn_callback);
+	gfn_action_ajaxsubmit('selectOderHd', 'get', '/oder/oderhd', null, fn_callback);
 });
 </script>
 </body>
