@@ -94,6 +94,13 @@
               <li class="footer"><a href="#">See All Messages</a></li>
             </ul>
           </li>
+          
+          
+          
+          
+          
+          
+          
           <!-- Notifications: style can be found in dropdown.less -->
           <li class="dropdown notifications-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
